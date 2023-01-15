@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nos clients</title>
+</head>
+<body>
+        <h1>Nos clients</h1>
+        <ul>
+        {% for c in clients %}
+            <li>{{ c.name }}</li>
+
+        {% endfor %}
+        </ul>
+</body>
+</html>
