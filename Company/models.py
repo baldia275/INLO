@@ -17,5 +17,5 @@ class Client (Model):
     def clean(self):
         if self.age < 18:
             raise ValidationError ("Vous devez être majeur pour pouvoir vous inscrire.")
-        if 'Suisse' not in self.address:
+        if 'Suisse' not in self.country:
             raise ValidationError ("Vous devez avoir une adresse suisse pour vous inscrire.")

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from Company.models import Client
 from django import forms
@@ -21,7 +21,11 @@ def inscription(request):
         form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect("clients")
 
         else:
-            form = ClientForm ()
-        return render (request, 'inscription.html', {'form': form})
+            print('Form not valid')
+
+    else:
+        form = ClientForm ()
+    return render(request, 'inscription.html', {'form': form})

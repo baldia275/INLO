@@ -7,20 +7,27 @@ from Company.models import Client
 from Company.views import clients, inscription
 
 CLIENTS_PATH = '/clients/'
-INSCRIPTION_PATH = '/inscription/'
+INSCRIPTION_PATH = ''
 
 
 # Create your tests here.
 class URLTest (TestCase):
     # Verification s'il y a un statut 200
+    def test_inscription_status_200(self):
+        response = self.client.get(INSCRIPTION_PATH)
+        self.assertEqual(200,response.status_code)
+
     def test_clients_status_is_200(self):
         response = self.client.get (CLIENTS_PATH)
         self.assertEqual (200, response.status_code)
+
 
     # verifier s'il y a une vue "inscription"
     def test_inscription_calls_clients_view(self):
         urlconfig = resolve (CLIENTS_PATH)
         self.assertEqual (clients, urlconfig.func)
+
+
 
 
 class ViewTest (TestCase):

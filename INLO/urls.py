@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
 
-from Company.views import clients, inscription
+from Company import views
+from Company.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('clients/', clients),
-    path('signup/', inscription)
+    path('',views.inscription),
+    path('clients/', views.clients, name="clients")
 
 ]
