@@ -73,7 +73,7 @@ class ModelTest (TestCase):
         self.assertIsInstance (Client (), Model)
 
     def test_can_save_client(self):
-        c = Client ()
+        c = Client()
         bob = 'Bob'
         c.name = bob
         c.age = 18
@@ -96,3 +96,4 @@ class ModelTest (TestCase):
         client = Client (name='Toufik', age=16, address='Avenue Champs-Elysées', country='France', username='toto',
                          town='Paris')
         self.assertRaises (ValidationError, client.full_clean)
+
